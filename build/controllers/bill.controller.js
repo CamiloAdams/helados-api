@@ -74,7 +74,7 @@ var createBill = /*#__PURE__*/function () {
             _context.next = 14;
             break;
           case 25:
-            if (!(total > user.balance)) {
+            if (!(parseFloat(total) > user.balance)) {
               _context.next = 29;
               break;
             }
@@ -92,7 +92,7 @@ var createBill = /*#__PURE__*/function () {
             _context.next = 32;
             return _User["default"].findByIdAndUpdate(decoded.id, {
               balance: user.balance - total,
-              spent_balance: user.spent_balance + total
+              spent_balance: user.spent_balance + parseFloat(total)
             }, {
               "new": true
             });
