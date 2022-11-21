@@ -8,6 +8,10 @@ const router = Router();
 router.get("/", [authjwt.verifyToken], userCtrl.getUserInformation);
 router.get("/users", [authjwt.verifyToken, authjwt.isAdmin], userCtrl.getUsers);
 
-router.delete("/:userId", [authjwt.verifyToken], userCtrl.deleteUserById);
+router.delete(
+    "/:userId",
+    [authjwt.verifyToken, authjwt.isAdmin],
+    userCtrl.deleteUserById
+);
 
 export default router;
