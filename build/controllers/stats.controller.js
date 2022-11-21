@@ -205,7 +205,7 @@ function _getBoughtIceCreams() {
             });
           case 14:
             iceCream = _context3.sent;
-            iceCreamsObject[iceCream.name] += element.get("quantity");
+            iceCreamsObject[iceCream.name] += parseFloat(element.get("quantity"));
           case 16:
             j++;
             _context3.next = 10;
@@ -336,7 +336,7 @@ function _getTotalBoughtIceCreams() {
             });
           case 14:
             iceCream = _context6.sent;
-            iceCreamsObject[iceCream.name] += element.get("quantity");
+            iceCreamsObject[iceCream.name] += parseFloat(element.get("quantity"));
           case 16:
             j++;
             _context6.next = 10;
@@ -394,7 +394,7 @@ function _getIceCreamProfit() {
             });
           case 14:
             iceCream = _context7.sent;
-            iceCreamsObject[iceCream.name] += element.get("quantity") * iceCream.price;
+            iceCreamsObject[iceCream.name] += parseFloat(element.get("quantity")) * iceCream.price;
           case 16:
             j++;
             _context7.next = 10;
@@ -449,7 +449,7 @@ function _getTotalIceCreamProfit() {
             });
           case 12:
             iceCream = _context8.sent;
-            profit += element.get("quantity") * iceCream.price;
+            profit += parseFloat(element.get("quantity")) * iceCream.price;
           case 14:
             j++;
             _context8.next = 8;
