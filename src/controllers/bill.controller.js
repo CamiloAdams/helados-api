@@ -27,7 +27,7 @@ export const createBill = async (req, res) => {
             if (!icecream)
                 return res.status(404).json({ message: "No ice cream found" });
         }
-        if (total > user.balance) {
+        if (parseFloat(total) > user.balance) {
             res.status(401).json({ message: "insufficient balance" });
         } else {
             const newBill = new Bill({
@@ -40,7 +40,7 @@ export const createBill = async (req, res) => {
                 decoded.id,
                 {
                     balance: user.balance - total,
-                    spent_balance: user.spent_balance + total,
+                    spent_balance: user.spent_balance + parseFloat(total),
                 },
                 { new: true }
             );
