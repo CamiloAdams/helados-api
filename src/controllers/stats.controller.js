@@ -72,7 +72,9 @@ async function getBoughtIceCreams(userId) {
             const iceCream = await IceCream.findOne({
                 _id: element.get("item"),
             });
-            iceCreamsObject[iceCream.name] += element.get("quantity");
+            iceCreamsObject[iceCream.name] += parseFloat(
+                element.get("quantity")
+            );
         }
     }
     return iceCreamsObject;
@@ -112,7 +114,9 @@ async function getTotalBoughtIceCreams() {
             const iceCream = await IceCream.findOne({
                 _id: element.get("item"),
             });
-            iceCreamsObject[iceCream.name] += element.get("quantity");
+            iceCreamsObject[iceCream.name] += parseFloat(
+                element.get("quantity")
+            );
         }
     }
     return iceCreamsObject;
@@ -129,7 +133,7 @@ async function getIceCreamProfit() {
                 _id: element.get("item"),
             });
             iceCreamsObject[iceCream.name] +=
-                element.get("quantity") * iceCream.price;
+                parseFloat(element.get("quantity")) * iceCream.price;
         }
     }
     return iceCreamsObject;
@@ -145,7 +149,7 @@ async function getTotalIceCreamProfit(userId) {
             const iceCream = await IceCream.findOne({
                 _id: element.get("item"),
             });
-            profit += element.get("quantity") * iceCream.price;
+            profit += parseFloat(element.get("quantity")) * iceCream.price;
         }
     }
     return profit;
